@@ -28,8 +28,9 @@ function renderScreen(screenId) {
 }
 let mute = false;
 musicBtn.addEventListener('click',()=>{
+    bgAudio.muted = false;
     if(mute){
-        //mute 
+        //mute
         bgAudio.volume = 0;
         musicBtn.src = "/images/unmute.png";
         mute = false;
