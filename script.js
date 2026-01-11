@@ -26,7 +26,7 @@ function renderScreen(screenId) {
     console.log(`rendered ${screenId}`)
     return 0;
 }
-let mute = true;
+let mute = false;
 musicBtn.addEventListener('click',()=>{
     if(mute){
         //mute 
