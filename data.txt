@@ -1,0 +1,23 @@
+States:
+    start - play btn screen 
+    sequence - screen which shows sequence of colors to remember 
+
+DOM Elements:
+    playbtn - change state from start to sequence 
+
+Data Storage:
+
+    constants:
+        allColors - list of all colors
+
+    Variables:
+        wins - track wins 
+        currentSequence - track current order of colors shown/to be input by user 
+
+Functions:
+    renderscreen(state) - change current game state on specified string argument
+    generateSequence(no) - adds K no of colors to currentSequence based on wins - 'no'
+    showSequence - call's sequence state, generate new currentSequence and shows the color's
+        changeColor - changes the name and color shown based on t - time gap
+        
+    
