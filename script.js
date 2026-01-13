@@ -12,9 +12,9 @@ const ruleBook = document.querySelector('.openRules');
 const rulesMenu = document.querySelector('#rulesMenu');
 const menuCloseBtn = document.querySelectorAll('.closeRulesBtn');
 
-window.addEventListener("beforeunload",(event)=>{
-    event.preventDefault();
-});
+// window.addEventListener("beforeunload",(event)=>{
+//     event.preventDefault();
+// });
 
 //render one screen and set display none to other's  
 function renderScreen(screenId) {
@@ -28,7 +28,10 @@ function renderScreen(screenId) {
 }
 let mute = false;
 musicBtn.addEventListener('click',()=>{
+    bgAudio.defaultMuted = false;
     bgAudio.muted = false;
+    bgAudio.paused = false;
+    console.dir(bgAudio);
     if(mute){
         //mute
         bgAudio.volume = 0;
@@ -72,6 +75,7 @@ const allColors = [
 let wins = 0;
 let currentwins = 0;
 let currentSequence = [];
+let canReplay = 3;
 
 //generate sequence
 function generateSequence() {
@@ -126,7 +130,7 @@ function showSequence(old = false) {
         t += 1200;
     }
     setTimeout(() => {
-        if(wins>2){
+        if(wins>2 && canReplay>0){
             renderScreen('replay');
         }else{
             renderScreen("playScr");
@@ -135,29 +139,6 @@ function showSequence(old = false) {
     }, 1200*(currentSequence.length + 1))
 }
 
-// each time of selecting make a array of remaningColors except the selection one and assign colors to each of the blocks except the specially selected block to assign the selection color 
-// function ValidatingInput() {
-//     for (let i = 0; i < currentSequence.length; i++) {
-//         selectionBlocks.forEach((block)=>{
-//             block.style.backgroundColor = `${allColors[Math.floor(Math.random()*(allColors.length))]}`
-//         })
-//         console.log('changed color of all blocks');
-//         let mainBlock = [selectionBlocks][0][Math.floor(Math.random()*selectionBlocks.length)];
-//         console.dir(mainBlock)
-//         mainBlock.style.backgroundColor = currentSequence[i];
-//         console.log('changes main block color');
-//         selectionBlocks.forEach((block) => {
-//             block.addEventListener('click', () => {
-//                 if(block.id !== mainBlock.id){
-//                     console.log("wrong block selected")
-//                 }
-//             })
-//         })
-//         console.log("first clwear ")
-//     }
-
-// }
-
 //play the sequence - activate
 playBtn.addEventListener("click", () => {
     showSequence();
@@ -165,6 +146,8 @@ playBtn.addEventListener("click", () => {
 //replay the sequence - activate 
 replayBtn.addEventListener('click', () => {
     t = 0;
+    canReplay -=1;
+    replayBtn.innerText = `🔁 Replay - ${canReplay} left!`;
     showSequence(true);
 })
 

@@ -11,28 +11,29 @@
 
 <body>
 
-    <audio class="bgAudio" src="./audio/bgaudio.mp3" autoplay loop muted>audio
+    <audio class="bgAudio" src="./audio/bgaudio.mp3" loop paused>audio
     </audio>
 
-    <div class="fixed bottom-0 right-0 z-2 h-15 w-15 m-5 ">
+    <div class="fixed bottom-0 right-0 z-2 md:mx-5 md:my-3 h-15 w-15 mx-2 my-2">
         <img src="./images/unmute.png" class="music scale-70 md:scale-100 border border-white rounded-full" alt="mute">
     </div>
 
     <!-- state - start  -->
-    <div id="start" class="screen h-screen w-full bg-gradient-to-br from-black via-gray-900 to-black text-white">
+    <div id="start" class="screen max-h-[100dvh] w-full bg-gradient-to-br from-black via-gray-900 to-black text-white">
         <!-- interactions -->
         <div class="relative">
             <!-- header -->
-            <div class="z-1 h-[100px] w-full place-items-center content-center text-bold text-center">
-                <p class="font-mono font-bold text-3xl md:text-[5vw] ">The Ultimate Memory Chellange</p>
+            <div class="p-15 md:p-10 z-1 h-[100px] w-full place-items-center content-center text-bold text-center">
+                <p class="font-mono font-bold text-[4.3vh] md:text-[3.5vw] ">The Ultimate Memory Chellange</p>
             </div>
             <!-- body -->
             <div class="h-[calc(100vh-100px)] flex flex-col items-center justify-center">
-                <div class="playbtn w-25 h-25 md:w-40 md:h-40 border-2 rounded-full bg-[url('./images/play.png')] bg-cover bg-center -translate-y-10 border-blue">
+                <div class="playbtn w-35 h-35 md:w-40 md:h-40 border-2 rounded-full bg-[url('./images/play.png')] bg-cover bg-center -translate-y-10 border-blue">
                 </div>
                 <p class="font-medium text-xl -translate-y-9">Start Game</p>
                 <button class="openRules p-2 bg-white border rounded-full text-black px-[2rem] font-medium shadow-2xl shadow-white">Rule's Book</button>
             </div>
+            <h1 class="absolute text-white bottom-7 text-sm md:text-lg md:bottom-2">@ Develouped By <b><i><a href="https://www.linkedin.com/in/parth-dhoot/" target="_blank">Parth Dhoot</a></i></b></h1>
         </div>
         <!-- rules menu -->
         <div id="rulesMenu" class="fixed inset-0 hidden items-center justify-center bg-black/70 backdrop-blur-sm">
@@ -83,19 +84,19 @@
     </div>
 
     <!-- state - sequence  -->
-    <div class="screen showColor h-screen w-full text-white bg-black place-items-center content-center" id="sequence">
+    <div class="screen p-10 showColor h-[100dvh] w-full text-white bg-black place-items-center content-center" id="sequence">
         <div class="place-items-center content-center">
-            <div class="py-2 absolute w-full -translate-y-[30vh] text-center text-xl">
+            <div class="px-13 absolute w-full -translate-y-[30vh] text-center text-xl font-bold">
                 <h1>Remember The Sequence of Color's !!</h1>
             </div>
-            <div class="py-3 w-40 bg-white border rounded border-white-700 text-center">
+            <div class="py-3 w-40 shadow-2xl shadow-white bg-white border rounded border-white-700 text-center">
                 <div class="text-bold-500 text-black center" id="color">Remember</div>
             </div>
         </div>
     </div>
 
     <!-- state - replay -->
-    <div id="replay" class="screen h-screen w-full w-full bg-gradient-to-br from-black via-gray-900 to-black">
+    <div id="replay" class="screen h-[100dvh] w-full w-full bg-gradient-to-br from-black via-gray-900 to-black">
         <div
             class="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-black via-gray-900 backdrop-blur-sm">
             <div
@@ -109,8 +110,7 @@
                     </button>
 
                     <!-- Replay Button -->
-                    <button id="replayBtn"
-                        class=" w-full py-4 rounded-xl text-lg font-semibold bg-blue-500 hover:bg-blue-600 transition-all shadow-lg">
+                    <button id="replayBtn" class=" w-full py-4 rounded-xl text-lg font-semibold bg-blue-500 hover:bg-blue-600 transition-all shadow-lg">
                         🔁 Replay Sequence
                     </button>
                 </div>
@@ -120,18 +120,18 @@
 
     <!-- state - play -->
     <div id="playScr" class="screen">
-        <div class="h-screen w-full grid md:grid-cols-2 sm:grid-cols-1">
-            <div id="1" class="selection bg-green-500"> </div>
-            <div id="2" class="selection bg-red-500"> </div>
-            <div id="3" class="selection bg-blue-500"> </div>
-            <div id="4" class="selection bg-gray-500"> </div>
+        <div class="h-[100dvh] w-full grid md:grid-cols-2 sm:grid-cols-1">
+            <div id="1" class="selection m-1 border-0 rounded-[3px] bg-green-500"> </div>
+            <div id="2" class="selection m-1 border-0 rounded-[3px] bg-red-500"> </div>
+            <div id="3" class="selection m-1 border-0 rounded-[3px] bg-blue-500"> </div>
+            <div id="4" class="selection m-1 border-0 rounded-[3px] bg-gray-500"> </div>
         </div>
     </div>
 
     <div class="screen bg-gradient-to-br from-black via-slate-900 to-black h-screen w-full flex items-center justify-center px-4"
         id="result">
         <!-- state - result -->
-        <div class="w-full h-screen">
+        <div class="w-full h-[100dvh]">
             <div class="h-full w-full flex justify-center items-center">
                 <div class="bg-white/15 backdrop-blur-lg border border-white/20 rounded-xl shadow-xl p-6 sm:p-10 w-full max-w-md text-center text-white">
                     <!-- Title -->
